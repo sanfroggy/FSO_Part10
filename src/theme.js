@@ -26,7 +26,8 @@ const theme = {
         },
         colors: {
             primary: 'white',
-            secondary: 'black'
+            secondary: 'black',
+            error: 'darkred'
         },
         againstColorfulBgrdText: {
             color: 'white'

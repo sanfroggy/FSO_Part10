@@ -1,16 +1,23 @@
 ﻿/*Importing the useField hook and StyleSheet, TextInput,
- ScrollView and Text components.*/
+ ScrollView and Text components, as well as themes. */
 import { useField } from 'formik';
 import { StyleSheet, Text, ScrollView } from 'react-native'
 import TextInput from './TextInput';
+import themes from '../theme'
 
 /*Creating a custom style for a possible error message and a style 
 for the input fields. */
 const styles = StyleSheet.create({
     errorText: {
         marginTop: 5,
-        color: 'red'
-    },
+        color: themes.aesthetics.colors.error,
+        marginLeft: 25,
+    }
+});
+
+/*Defining a reqular style for a TextField and one to give a visual
+cue of an error by using the color defined in themes as error color. */
+const inputStyles = StyleSheet.create({
     inputStyle: {
         height: 35,
         width: 250,
@@ -20,8 +27,18 @@ const styles = StyleSheet.create({
         marginLeft: 25,
         marginTop: 10,
         marginBottom: 10
-    }
-});
+    },
+    inputErrorStyle: {
+        height: 35,
+        width: 250,
+        borderStyle: 'solid',
+        borderColor: themes.aesthetics.colors.error,
+        borderWidth: 2,
+        marginLeft: 25,
+        marginTop: 10,
+        marginBottom: 10
+    },
+})
 
 /*Defining a FormikTextInput component using the Fornik library.
 This provides a reusable model for TextField components using Fornik. 
@@ -41,14 +58,14 @@ const FormikTextInput = ({ name, ...props }) => {
     return (
         <>
             <ScrollView horizontal>
-            <TextInput
-                style={styles.inputStyle}
-                onChangeText={value => helpers.setValue(value)}
-                onBlur={() => helpers.setTouched(true)}
-                value={field.value}
-                error={showError}
-                {...props}
-            />
+                <TextInput
+                    style={inputStyles}
+                    onChangeText={value => helpers.setValue(value)}
+                    onBlur={() => helpers.setTouched(true)}
+                    value={field.value}
+                    error={showError}
+                    {...props}
+                />
             </ScrollView>
             {showError && <Text style={styles.errorText}>{meta.error}</Text>}
         </>
