@@ -1,8 +1,6 @@
 ﻿/*Importing FlatList, View and Stylesheet components from react-native.
-Also iporting Constants from expo-constants and the RepositoryItem
-component. */
+Also importing the RepositoryItem component. */
 import { FlatList, View, StyleSheet } from 'react-native';
-import Constants from 'expo-constants'
 import RepositoryItem from './RepositoryItem'
 
 //Defining inline-styles for separators and containers.
@@ -11,7 +9,6 @@ const styles = StyleSheet.create({
         height: 10,
     },
     container: {
-        marginTop: Constants.statusBarHeight,
         flexGrow: 1,
         flexShrink: 1,
     },
