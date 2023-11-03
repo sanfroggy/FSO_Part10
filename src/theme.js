@@ -37,7 +37,7 @@ const theme = {
             opacity: 0.90,
             paddingTop: Constants.statusBarHeight,
             padding: 25,
-            height: 70,
+            height: 85,
         },
         smallContainerWithSilverBrgd: {
             flexDirection: 'row',
