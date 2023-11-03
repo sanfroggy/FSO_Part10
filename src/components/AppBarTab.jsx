@@ -10,7 +10,7 @@ const AppBarTab = ({ label }) => {
     const styles = StyleSheet.create({
         textStyle: {
             fontWeight: 'bold',
-            color: themes.aesthetics.topBarText.color,
+            color: themes.aesthetics.againstColorfulBgrdText.color,
             fontSize: themes.fontStyles.label.fontSize
             
         }

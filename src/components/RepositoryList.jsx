@@ -2,11 +2,13 @@
 Also importing the RepositoryItem component. */
 import { FlatList, View, StyleSheet } from 'react-native';
 import RepositoryItem from './RepositoryItem'
+import themes from '../theme'
 
 //Defining inline-styles for separators and containers.
 const styles = StyleSheet.create({
     separator: {
         height: 10,
+        backgroundColor: themes.aesthetics.colors.secondary
     },
     container: {
         flexGrow: 1,
@@ -70,7 +72,7 @@ Data is passed to a FlatList component, which then defines a RepositoryItem
 component for each individual object inside the renderItem prop. */
 const RepositoryList = () => {
     return (
-        <FlatList
+        <FlatList 
             data={repositories}
             ItemSeparatorComponent={ItemSeparator}
                 renderItem={({ item}) => (

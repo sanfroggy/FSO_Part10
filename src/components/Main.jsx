@@ -5,10 +5,11 @@ import AppBar from './AppBar'
 
 const Main = () => {
 
+    //Returning the defined AppBar and RepositoryList components.
     return (
-        <View>
-            <AppBar/ >
-            <RepositoryList />
+        <View >
+            <AppBar />
+            <RepositoryList  />
         </View>
     );
 };

@@ -5,7 +5,30 @@ import Constants from 'expo-constants';
 ui and layout styles. */
 const theme = {
     aesthetics: {
-        topBarText: {
+        layout: {
+            smallHorizontalRowFlexContainer: {
+                flexDirection: 'row',
+                height: 60,
+                opacity: 1,
+                flexShrink: 1
+            },
+            smallCenteredHorizontalRowFlexContainer: {
+                alignItems: 'center',
+                height: 40,
+                opacity: 1
+            },
+            smallVerticalColumnFlexContainer: {
+                flexDirection: 'column',
+                height: 60,
+                opacity: 1,
+                flexShrink: 1
+            }
+        },
+        colors: {
+            primary: 'white',
+            secondary: 'black'
+        },
+        againstColorfulBgrdText: {
             color: 'white'
         },
         topBar: {
@@ -15,6 +38,18 @@ const theme = {
             paddingTop: Constants.statusBarHeight,
             padding: 25,
             height: 70,
+        },
+        smallContainerWithSilverBrgd: {
+            flexDirection: 'row',
+            heigth: 20,
+            width: 80,
+            right: 110,
+            top: 16,
+            backgroundColor: 'silver'
+        },
+        smallImage: {
+            width: 50,
+            height: 50
         }
     },
     fontStyles: {
@@ -37,7 +72,7 @@ const theme = {
         largeHeader: {
             fontWeight: 'bold',
             fontSize: 28
-        }
+        },
     }
 };
 
