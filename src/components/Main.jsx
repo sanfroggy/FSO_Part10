@@ -1,4 +1,5 @@
-﻿//Importing the RepositoryList component and the View component.
+﻿/*Importing the RepositoryList, AppBar, SignIn, Routes,
+Route and the View components. */
 import RepositoryList from './RepositoryList';
 import { View } from 'react-native';
 import AppBar from './AppBar'

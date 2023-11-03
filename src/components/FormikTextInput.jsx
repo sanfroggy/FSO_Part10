@@ -1,6 +1,8 @@
 ﻿/*Importing the useField hook and StyleSheet, TextInput,
  ScrollView and Text components, as well as themes. */
 import { useField } from 'formik';
+/*Importing StyleSheet, Text and ScrollView components, as well as
+the defined TextInput component and theme. */
 import { StyleSheet, Text, ScrollView } from 'react-native'
 import TextInput from './TextInput';
 import themes from '../theme'
@@ -10,7 +12,7 @@ for the input fields. */
 const styles = StyleSheet.create({
     errorText: {
         marginTop: 5,
-        color: themes.aesthetics.colors.error,
+        color: themes.aesthetics.colors.textError,
         marginLeft: 25,
     }
 });
@@ -32,7 +34,7 @@ const inputStyles = StyleSheet.create({
         height: 35,
         width: 250,
         borderStyle: 'solid',
-        borderColor: themes.aesthetics.colors.error,
+        borderColor: themes.aesthetics.colors.textError,
         borderWidth: 2,
         marginLeft: 25,
         marginTop: 10,

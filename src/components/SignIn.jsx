@@ -1,12 +1,15 @@
 ﻿/*Importing the Text, Pressable, View and StyleSheet components, as well
 as the imported FormikTextInput component. Also importing Formik component from
 formik library and themes. */
-import { Text, Pressable, View, StyleSheet } from 'react-native';
+import { Pressable, View, StyleSheet } from 'react-native';
+import Text from './Text'
 import FormikTextInput from './FormikTextInput'
 import { Formik } from 'formik';
 import themes from '../theme'
 import * as yup from 'yup'
 
+/*Creating a validationSchema using the yup library to validate
+user input, when signing in. */
 const validationSchema = yup.object().shape({
     user: yup.string().
         required('Username is required to sign in.'),
@@ -45,7 +48,7 @@ const SignInForm = ({ onSubmit }) => {
             />
             <View style={styles.btnStyle}>
                 <Pressable style={themes.aesthetics.largeContainerWithSilverBrgd} onPress={onSubmit}>
-                    <Text style={themes.aesthetics.againstColorfulBgrdText}>Sign In</Text>
+                    <Text style='label' color='textSecondary'>Sign In</Text>
                 </Pressable>
             </View>
         </View>

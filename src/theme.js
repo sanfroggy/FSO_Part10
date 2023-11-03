@@ -1,5 +1,6 @@
 //Importing Constants from expo-constants
 import Constants from 'expo-constants';
+import { Platform } from 'react-native';
 
 /*Defining a variable for theme to create reusable
 ui and layout styles. */
@@ -27,10 +28,9 @@ const theme = {
         colors: {
             primary: 'white',
             secondary: 'black',
-            error: 'darkred'
-        },
-        againstColorfulBgrdText: {
-            color: 'white'
+            textError: 'darkred',
+            textPrimary: 'black',
+            textSecondary: 'white'
         },
         topBar: {
             flexDirection: 'row',
@@ -58,6 +58,13 @@ const theme = {
             width: 50,
             height: 50
         }
+    },
+    fonts: {
+        main: Platform.select({
+            android: 'Roboto',
+            ios: 'Arial',
+            default: 'System',
+        })
     },
     fontStyles: {
         normal: {

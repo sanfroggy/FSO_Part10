@@ -1,5 +1,5 @@
-﻿//Importing themes and the Stylesheet, Text and Pressable components.
-import { StyleSheet, Text } from 'react-native';
+﻿//Importing themes and the Text and Link components, as well as theme.
+import Text from './Text'
 import themes from '../theme'
 import { Link } from 'react-router-native'
 
@@ -7,21 +7,11 @@ import { Link } from 'react-router-native'
 labels for the app bar. */
 const AppBarTab = ({ label, destination }) => {
 
-    //Defining a style for the app bar text.
-    const styles = StyleSheet.create({
-        textStyle: {
-            fontWeight: 'bold',
-            color: themes.aesthetics.againstColorfulBgrdText.color,
-            fontSize: themes.fontStyles.label.fontSize
-            
-        }
-    });
-
     //Returning a pressable text component.
     return (
         <>
             <Link to={destination}>
-                <Text style={styles.textStyle}>{label}   </Text>
+                <Text style={themes.fontStyles.label} color='textSecondary'>{label}   </Text>
             </Link>
         </>
     )

@@ -1,5 +1,6 @@
 ﻿//Importing Text component from react-native.
-import { Text, Image, View } from 'react-native';
+import { Image, View } from 'react-native';
+import Text from './Text'
 import themes from '../theme'
 
 /*Defining a component to display the data of a single item from a
@@ -22,8 +23,8 @@ const RepositoryItem = ( {repo }) => {
                         uri: repo.ownerAvatarUrl
                     }} />
                     <View style={themes.aesthetics.layout.smallVerticalColumnFlexContainer}> 
-                        <Text style={themes.fontStyles.mediumHeader}> {repo.fullName}</Text>
-                        <Text style={themes.fontStyles.label}>  {repo.description}{"\n"}{"\n"}</Text>
+                        <Text style={themes.fontStyles.mediumHeader} color='textPrimary'> {repo.fullName}</Text>
+                        <Text style={themes.fontStyles.label} color='textPrimary'>  {repo.description}{"\n"}{"\n"}</Text>
 
                     </View>
 
@@ -31,30 +32,34 @@ const RepositoryItem = ( {repo }) => {
 
                 <View style={themes.aesthetics.layout.smallCenteredHorizontalRowFlexContainer} >
                     <View style={themes.aesthetics.smallContainerWithSilverBrgd} >
-                        <Text style={themes.aesthetics.againstColorfulBgrdText}>{repo.language}</Text>
+                        <Text style={themes.fontStyles.label} color='textSecondary'>{repo.language}</Text>
                     </View>
                 </View>
 
                 <View style={themes.aesthetics.layout.smallHorizontalRowFlexContainer} >
-                    <View style={themes.aesthetics.layout.smallVerticalColumnFlexContainer}> 
-                        <Text>{repo.stargazersCount > 1000 ? splitByThousand(repo.stargazersCount).toFixed(1) + "k" : 
+                    <View style={themes.aesthetics.layout.smallVerticalColumnFlexContainer}>
+                        <Text style={themes.fontStyles.normal} color='textPrimary'>{repo.stargazersCount > 1000 ?
+                            splitByThousand(repo.stargazersCount).toFixed(1) + "k" : 
                                 repo.stargazerCount} </Text>
-                        <Text>Stars         </Text>
+                        <Text style={themes.fontStyles.normal} color='textPrimary'>Stars         </Text>
                     </View>
                     <View style={themes.aesthetics.layout.smallVerticalColumnFlexContainer}> 
-                        <Text>{repo.forksCount > 1000 ? splitByThousand(repo.forksCount).toFixed(1) + "k" :
+                        <Text style={themes.fontStyles.normal} color='textPrimary'>{repo.forksCount > 1000 ?
+                            splitByThousand(repo.forksCount).toFixed(1) + "k" :
                             " " + repo.forksCount}</Text>
-                        <Text>Forks        </Text>
+                        <Text style={themes.fontStyles.normal} color='textPrimary'>Forks        </Text>
                     </View>
                     <View style={themes.aesthetics.layout.smallVerticalColumnFlexContainer}> 
-                        <Text>{repo.reviewCount > 1000 ? splitByThousand(repo.reviewCount).toFixed(1) + "k" :
+                        <Text style={themes.fontStyles.normal} color='textPrimary'>{repo.reviewCount > 1000 ?
+                            splitByThousand(repo.reviewCount).toFixed(1) + "k" :
                                 "      " + repo.reviewCount}</Text>
-                        <Text>Reviews       </Text>
+                        <Text style={themes.fontStyles.normal} color='textPrimary'>Reviews       </Text>
                     </View>
                     <View style={themes.aesthetics.layout.smallVerticalColumnFlexContainer}> 
-                        <Text>{repo.ratingAverage > 1000 ? splitByThousand(repo.ratingAverage).toFixed(1) + "k" :
+                        <Text style={themes.fontStyles.normal} color='textPrimary'>{repo.ratingAverage > 1000 ?
+                            splitByThousand(repo.ratingAverage).toFixed(1) + "k" :
                             "    " + repo.ratingAverage}</Text>
-                        <Text>Ratings       </Text>
+                        <Text style={themes.fontStyles.normal} color='textPrimary'>Ratings       </Text>
                     </View>
                 </View>
             </View>

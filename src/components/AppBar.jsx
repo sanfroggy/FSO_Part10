@@ -1,4 +1,4 @@
-﻿//Importing the View and AppBarTab components as well as themes.
+﻿//Importing the View, ScrollView and AppBarTab components as well as theme.
 import { View, ScrollView } from 'react-native';
 import AppBarTab from './AppBarTab'
 import themes from '../theme'
