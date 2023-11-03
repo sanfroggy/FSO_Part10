@@ -41,10 +41,16 @@ const theme = {
         },
         smallContainerWithSilverBrgd: {
             flexDirection: 'row',
-            heigth: 20,
+            height: 20,
             width: 80,
             right: 110,
             top: 16,
+            backgroundColor: 'silver'
+        },
+        largeContainerWithSilverBrgd: {
+            height: 25,
+            width: 250,
+            alignItems: 'center',
             backgroundColor: 'silver'
         },
         smallImage: {
