@@ -66,13 +66,12 @@ const SignIn = () => {
     const [signIn] = useSignIn()
 
     /*If the mutation defined in the useSignIn hook is successfully executed,
-    the authorization token is printed to console. If not, the occurred error is then 
+    the authorization token is saved to the AsyncStorage. If not, the occurred error is then 
     printed to console.*/
     const onSubmit = async( values ) => {
 
         try {
-            const resp = await signIn({ user: values.user, pwd: values.pwd })
-            console.log(resp.data.authenticate.accessToken)
+            await signIn({ user: values.user, pwd: values.pwd })
         } catch (error) {
             console.log(error)
         }
