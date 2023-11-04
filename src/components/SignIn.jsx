@@ -7,6 +7,7 @@ import FormikTextInput from './FormikTextInput'
 import { Formik } from 'formik';
 import themes from '../theme'
 import * as yup from 'yup'
+import useSignIn from '../hooks/useSignIn'
 
 /*Creating a validationSchema using the yup library to validate
 user input, when signing in. */
@@ -60,10 +61,22 @@ In addition to providing an onSubmit function, it provides initial values
 for the Formik component and the SignInForm defined as it's child also gets
 the onSubmit function from the same Formik component. */
 const SignIn = () => {
-    const onSubmit = ( values ) => {
 
-        console.log(values.user);
-        console.log(values.pwd);
+    //Defining a variable to use the defined useSignIn hook.
+    const [signIn] = useSignIn()
+
+    /*If the mutation defined in the useSignIn hook is successfully executed,
+    the authorization token is printed to console. If not, the occurred error is then 
+    printed to console.*/
+    const onSubmit = async( values ) => {
+
+        try {
+            const resp = await signIn({ user: values.user, pwd: values.pwd })
+            console.log(resp.data.authenticate.accessToken)
+        } catch (error) {
+            console.log(error)
+        }
+
     };
 
     return (
