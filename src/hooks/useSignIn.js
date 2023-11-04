@@ -28,12 +28,15 @@ const useSignIn = () => {
     /*Defining a function to sign in with the correct credentials.
     On succesful mutation the accessToken is stored to the AsyncStorage and returned. */
     const signIn = async ({ user, pwd }) => {
+
         const authData = await auth({ variables: { user: user, pwd: pwd } })
         if (authData) {
             await authStorage.setAccessToken(authData.data.authenticate.accessToken)
             client.resetStore();
+
             return authData
         }
+        
     }
 
     //Returning the signIn function and the result of the mutation.

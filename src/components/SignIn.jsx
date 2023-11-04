@@ -1,6 +1,6 @@
 ﻿/*Importing the Text, Pressable, View and StyleSheet components, as well
 as the imported FormikTextInput component. Also importing Formik component from
-formik library and themes. */
+formik library and themes as well as the useSignIn and useNavigate hooks. */
 import { Pressable, View, StyleSheet } from 'react-native';
 import Text from './Text'
 import FormikTextInput from './FormikTextInput'
@@ -8,6 +8,7 @@ import { Formik } from 'formik';
 import themes from '../theme'
 import * as yup from 'yup'
 import useSignIn from '../hooks/useSignIn'
+import { useNavigate } from 'react-router-native'
 
 /*Creating a validationSchema using the yup library to validate
 user input, when signing in. */
@@ -62,16 +63,20 @@ for the Formik component and the SignInForm defined as it's child also gets
 the onSubmit function from the same Formik component. */
 const SignIn = () => {
 
+    //Defining a variable to use the useNavigate hook.
+    const navigate = useNavigate()
+
     //Defining a variable to use the defined useSignIn hook.
     const [signIn] = useSignIn()
 
     /*If the mutation defined in the useSignIn hook is successfully executed,
-    the authorization token is saved to the AsyncStorage. If not, the occurred error is then 
-    printed to console.*/
-    const onSubmit = async( values ) => {
+    the authorization token is saved to the AsyncStorage and the user is redirected back to
+    the "home page". If not, the occurred error is then printed to console.*/
+    const onSubmit = async (values) => {
 
         try {
             await signIn({ user: values.user, pwd: values.pwd })
+            navigate('/')
         } catch (error) {
             console.log(error)
         }
