@@ -1,9 +1,10 @@
 //Importing ApolloClient and InMemoryCache, as well as the createHttpLink function.
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import Constants from 'expo-constants';
 
 //Using createHttpLink to connect to the backend.
 const httpLink = createHttpLink({
-    uri: 'http://192.168.232.30:4000/graphql'
+    uri: Constants.manifest.extra.env
 
 });
 
