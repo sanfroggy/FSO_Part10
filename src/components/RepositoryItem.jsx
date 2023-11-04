@@ -24,8 +24,7 @@ const RepositoryItem = ( {repo }) => {
                     }} />
                     <View style={themes.aesthetics.layout.smallVerticalColumnFlexContainer}> 
                         <Text style={themes.fontStyles.mediumHeader} color='textPrimary'> {repo.fullName}</Text>
-                        <Text style={themes.fontStyles.label} color='textPrimary'>  {repo.description}{"\n"}{"\n"}</Text>
-
+                        <Text style={themes.fontStyles.growingLabel} color='textPrimary'>  {repo.description}</Text>
                     </View>
 
                 </View>

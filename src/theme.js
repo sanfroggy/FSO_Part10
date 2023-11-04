@@ -14,7 +14,10 @@ const theme = {
                 flexShrink: 1
             },
             smallCenteredHorizontalRowFlexContainer: {
+                flexDirection: 'column',
+                flexGrow: 1,
                 alignItems: 'center',
+                padding: 30,
                 height: 40,
                 opacity: 1
             },
@@ -22,7 +25,8 @@ const theme = {
                 flexDirection: 'column',
                 height: 60,
                 opacity: 1,
-                flexShrink: 1
+                flexShrink: 1,
+                marginRight: 20
             }
         },
         colors: {
@@ -41,11 +45,9 @@ const theme = {
             height: 85,
         },
         smallContainerWithSilverBrgd: {
-            flexDirection: 'row',
             height: 20,
+            right: 120,
             width: 80,
-            right: 110,
-            top: 16,
             backgroundColor: 'silver'
         },
         largeContainerWithSilverBrgd: {
@@ -74,6 +76,12 @@ const theme = {
         label: {
             fontWeight: 'normal',
             fontSize: 16
+        },
+        growingLabel: {
+            fontWeight: 'normal',
+            fontSize: 16,
+            overflow: 'visible',
+            flexGrow: 1
         },
         smallHeader: {
             fontWeight: 'bold',

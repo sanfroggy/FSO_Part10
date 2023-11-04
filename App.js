@@ -1,7 +1,13 @@
-//Importing the NativeRouter, StatusBar and Main components.
+/*Importing the NativeRouter, StatusBar and Main components, as well as
+ApolloProvider and  createApolloClient function. */
 import { NativeRouter } from 'react-router-native';
 import { StatusBar } from 'expo-status-bar'
+import { ApolloProvider } from '@apollo/client';
 import Main from './src/components/Main';
+import createApolloClient from './src/utils/apolloClient';
+
+//Defining an Apollo client.
+const apolloClient = createApolloClient();
 
 const App = () => {
 
@@ -10,7 +16,9 @@ const App = () => {
     return (
         <>
             <NativeRouter>
-                <Main />
+                <ApolloProvider client={apolloClient}>
+                    <Main />
+                 </ApolloProvider>
             </NativeRouter>
             <StatusBar style="auto" />
         </>

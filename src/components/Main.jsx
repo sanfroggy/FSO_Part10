@@ -11,7 +11,7 @@ const Main = () => {
     /*Returning the defined AppBar and a RepositoryList component or SignIn component
     depending on the current Route. */
     return (
-        <View >
+        <View style={{ flex: 1 }}>
             <AppBar />
             <Routes>
                 <Route path='/' element={<RepositoryList />} />
