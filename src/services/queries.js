@@ -20,3 +20,13 @@ export const GET_REPOS = gql`
       }
     }
 `
+
+//Defining a query to get the currently logged in user.
+export const ME = gql`
+    query Me {
+      me {
+        id
+        username
+      }
+    }
+`

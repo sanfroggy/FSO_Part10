@@ -1,11 +1,12 @@
 /*Importing the useQuery hook and the defined SIGN_IN mutation.
 Also importing the useContext and useApolloClient hooks, as well as
-the defined AuthStorageContext. */
+the defined AuthStorageContext and the deifned ME query. */
 import { useMutation } from '@apollo/client';
 import { SIGN_IN } from '../services/mutations'
 import { useApolloClient } from '@apollo/client';
 import { useContext } from 'react';
 import AuthStorageContext from '../contexts/authStorageContext';
+import { ME } from '../services/queries'
 
 //Defining a function the result of the mutation and a function to sign in.
 const useSignIn = () => {
@@ -20,6 +21,7 @@ const useSignIn = () => {
     /*Defining a variable for the useMutation hook and the result of the 
     operation. Errors are printed to console. */
     const [auth, result] = useMutation(SIGN_IN, {
+        refetchQueries: { query: ME },
         onError: (error) => {
             console.log(error)
         }
