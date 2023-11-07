@@ -13,10 +13,11 @@ const RepositoryItem = ( {repo }) => {
     }
 
     /*Returning a styled list of repository objects. Layouts and aesthetics are defined
-    in theme. Images are also received from the url field of the received repo object. */
+    in theme. Images are also received from the url field of the received repo object. 
+    Also giving the container a testID. */
     return (
         <>
-            <View style={themes.aesthetics.listStyle} >
+            <View testID='repoItemContainer' style={themes.aesthetics.listStyle} >
 
                 <View style={themes.aesthetics.layout.smallHorizontalRowFlexContainer} >
                     <Image style={themes.aesthetics.smallImage} source={{
