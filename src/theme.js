@@ -9,7 +9,6 @@ const theme = {
         layout: {
             smallHorizontalRowFlexContainer: {
                 flexDirection: 'row',
-                height: 60,
                 opacity: 1,
                 flexShrink: 1
             },
@@ -30,11 +29,11 @@ const theme = {
                 opacity: 1
             },
             smallVerticalColumnFlexContainer: {
+                padding: 10,
                 flexDirection: 'column',
-                height: 60,
                 opacity: 1,
-                flexShrink: 1,
-                marginRight: 20
+                marginRight: 20,
+                flex: 1
             }
         },
         colors: {
@@ -64,6 +63,18 @@ const theme = {
             alignItems: 'center',
             backgroundColor: 'silver'
         },
+        mediumCircleContainerWithBorder: {
+            backgroundColor: 'white',
+            borderRadius: 25,
+            borderColor: 'black',
+            borderStyle: 'solid',
+            borderWidth: 1,
+            width: 50,
+            height: 50,
+            textAlign: 'center',
+            paddingTop: 8,
+            marginRight: 15
+        },
         smallImage: {
             width: 50,
             height: 50
@@ -85,19 +96,13 @@ const theme = {
             fontWeight: 'normal',
             fontSize: 16
         },
-        growingLabel: {
-            fontWeight: 'normal',
-            fontSize: 16,
-            overflow: 'visible',
-            flexGrow: 1
-        },
         smallHeader: {
             fontWeight: 'bold',
             fontSize: 18
         },
         mediumHeader: {
             fontWeight: 'bold',
-            fontSize: 22
+            fontSize: 22,
         },
         largeHeader: {
             fontWeight: 'bold',
