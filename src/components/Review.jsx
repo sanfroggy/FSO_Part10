@@ -1,6 +1,6 @@
 /*Importing the Text, Pressable, View and StyleSheet components, as well
 as the imported FormikTextInput component. Also importing Formik component from
-formik library and themes as well as the useSignIn and useNavigate hooks. */
+formik library and themes as well as the useReview and useNavigate hooks. */
 import { Pressable, View, StyleSheet } from 'react-native';
 import Text from './Text'
 import FormikTextInput from './FormikTextInput'

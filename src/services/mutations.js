@@ -10,7 +10,7 @@ export const SIGN_IN = gql`
 }
 `
 
-//Deifning a mutation used to create a new review for a repository.
+//Defining a mutation used to create a new review for a repository.
 export const CREATE_REVIEW = gql`
 mutation ($repoOwner: String!, $repoName: String!, 
     $rating: Int!, $review: String!) {
@@ -19,5 +19,15 @@ mutation ($repoOwner: String!, $repoName: String!,
     id
     repositoryId
   }
+}
+`
+
+//Defining a mutation used to create a new user.
+export const SIGN_UP = gql`
+  mutation ($user: String!, $pwd: String!){
+      createUser(user: { username: $user, password: $pwd }) {
+        id
+        username
+      }
 }
 `

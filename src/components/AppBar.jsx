@@ -47,6 +47,7 @@ const AppBar = () => {
                     : null}
                 {user === null ? <AppBarTab label={'Sign In'} destination={'/signin'} />
                     : <AppBarTab label={'Sign Out'} destination={'/signout'} />}
+                {!user ? <AppBarTab label={'Sign Up'} destination={'/signup'} /> : null}
             </ScrollView>
         </View>
     );

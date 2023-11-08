@@ -12,7 +12,7 @@ import { useApolloClient } from '@apollo/client';
 import { useContext } from 'react';
 import SingleRepo from './SingleRepo';
 import Review from './Review'
-
+import SignUp from './SignUp'
 
 const Main = () => {
 
@@ -54,7 +54,8 @@ const Main = () => {
                 <Route path='/signin' element={<SignIn />} />
                 <Route path='/signout' element={<SignOut />} />
                 <Route path='/repositories/:id' element={<SingleRepo />} />
-                <Route path='/createreview' element={<Review /> } />
+                <Route path='/createreview' element={<Review />} />
+                <Route path='/signup' element={<SignUp /> } />
             </Routes>
 
 

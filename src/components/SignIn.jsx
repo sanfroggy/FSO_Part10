@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 });
 
 /*Defining a component that uses the FormikTextInput components
-to keep track of writter user and password input. Also contains the 
+to keep track of written user and password input. Also contains the 
 Pressable Text component used to submit the data. */
 const SignInForm = ({ onSubmit }) => {
     return (
