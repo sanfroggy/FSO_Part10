@@ -5,6 +5,8 @@ import { View, Text } from 'react-native'
 //Defining a component used to display the data of a single review.
 const SingleReview = ({ review }) => {
 
+    console.log("Text: " + review.text + ",Id: " + review.id)
+
     //The date of creation is parsed as substrings and reorchestrated to proper format.
     const createdMonth = review.createdAt.substring(5, 7)
     const createdDate = review.createdAt.substring(8, 10)

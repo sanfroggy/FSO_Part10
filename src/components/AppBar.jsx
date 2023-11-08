@@ -43,6 +43,8 @@ const AppBar = () => {
         <View style={themes.aesthetics.topBar}>
             <ScrollView horizontal>
                 <AppBarTab label={'Repositories'} destination={'/'} />
+                {user ? <AppBarTab label={'Create a review'} destination={'/createreview'} />
+                    : null}
                 {user === null ? <AppBarTab label={'Sign In'} destination={'/signin'} />
                     : <AppBarTab label={'Sign Out'} destination={'/signout'} />}
             </ScrollView>

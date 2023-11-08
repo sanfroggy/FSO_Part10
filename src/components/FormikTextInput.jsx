@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     errorText: {
         marginTop: 5,
         color: themes.aesthetics.colors.textError,
-        marginLeft: 25,
+        marginLeft: 25
     }
 });
 
@@ -23,6 +23,7 @@ const inputStyles = StyleSheet.create({
     inputStyle: {
         height: 35,
         width: 250,
+        padding: 5,
         borderStyle: 'solid',
         borderColor: 'black',
         borderWidth: 2,
@@ -31,6 +32,7 @@ const inputStyles = StyleSheet.create({
         marginBottom: 10
     },
     inputErrorStyle: {
+        padding: 5,
         height: 35,
         width: 250,
         borderStyle: 'solid',

@@ -11,6 +11,7 @@ import AuthStorageContext from '../contexts/authStorageContext';
 import { useApolloClient } from '@apollo/client';
 import { useContext } from 'react';
 import SingleRepo from './SingleRepo';
+import Review from './Review'
 
 
 const Main = () => {
@@ -53,6 +54,7 @@ const Main = () => {
                 <Route path='/signin' element={<SignIn />} />
                 <Route path='/signout' element={<SignOut />} />
                 <Route path='/repositories/:id' element={<SingleRepo />} />
+                <Route path='/createreview' element={<Review /> } />
             </Routes>
 
 

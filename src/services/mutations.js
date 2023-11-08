@@ -9,3 +9,15 @@ export const SIGN_IN = gql`
       }
 }
 `
+
+//Deifning a mutation used to create a new review for a repository.
+export const CREATE_REVIEW = gql`
+mutation ($repoOwner: String!, $repoName: String!, 
+    $rating: Int!, $review: String!) {
+  createReview(review: { ownerName: $repoOwner, repositoryName: $repoName, 
+      rating: $rating, text: $review }) {
+    id
+    repositoryId
+  }
+}
+`

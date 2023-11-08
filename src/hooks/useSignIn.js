@@ -8,7 +8,7 @@ import { useContext } from 'react';
 import AuthStorageContext from '../contexts/authStorageContext';
 import { ME } from '../services/queries'
 
-//Defining a function the result of the mutation and a function to sign in.
+//Defining a hook to use the SIGN_IN mutation.
 const useSignIn = () => {
 
     /*Defining a variable to use the AuthStorageContext used to store
