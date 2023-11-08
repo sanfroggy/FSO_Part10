@@ -3,8 +3,9 @@ import { gql } from '@apollo/client';
 
 //Defining a query to get all repositories from the backend.
 export const GET_REPOS = gql`
-    query Query {
-      repositories {
+    query Repositories ($orderBy: AllRepositoriesOrderBy, $orderDirection: OrderDirection) {
+      repositories (orderBy: $orderBy, 
+          orderDirection: $orderDirection ){
         edges {
           node {
             id
@@ -17,6 +18,7 @@ export const GET_REPOS = gql`
             description
             language
             ownerAvatarUrl
+
           }
         }
       }
