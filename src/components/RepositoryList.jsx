@@ -48,9 +48,9 @@ const RepositoryList = () => {
             renderItem={({ item }) => (
                     <View style={styles.container} >
                         <RepositoryItem
-                            key={item.id}
-                            repo={item}
-
+                        key={item.id}
+                        repo={item}
+                        single={false}
                         />
                     </View>
                 )}

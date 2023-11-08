@@ -21,6 +21,14 @@ const theme = {
                 height: 40,
                 opacity: 1
             },
+            largeCenteredHorizontalRowFlexContainer: {
+                flexDirection: 'column',
+                flexGrow: 1,
+                alignItems: 'center',
+                padding: 45,
+                height: 60,
+                opacity: 1
+            },
             smallVerticalColumnFlexContainer: {
                 flexDirection: 'column',
                 height: 60,

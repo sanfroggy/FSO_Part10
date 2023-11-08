@@ -7,6 +7,7 @@ export const GET_REPOS = gql`
       repositories {
         edges {
           node {
+            id
             fullName
             ratingAverage
             reviewCount
@@ -15,8 +16,28 @@ export const GET_REPOS = gql`
             ownerAvatarUrl
             description
             language
+            ownerAvatarUrl
           }
         }
+      }
+    }
+`
+
+//Defining a query to a single repository with a given id.
+export const GET_REPO = gql`
+    query Repo ($id: ID!){
+      repository(id: $id) {
+        id
+        fullName
+        ratingAverage
+        reviewCount
+        stargazersCount
+        forksCount
+        ownerAvatarUrl
+        description
+        language
+        ownerAvatarUrl
+        url
       }
     }
 `

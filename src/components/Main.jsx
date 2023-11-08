@@ -10,6 +10,8 @@ import { Routes, Route, useNavigate } from 'react-router-native'
 import AuthStorageContext from '../contexts/authStorageContext';
 import { useApolloClient } from '@apollo/client';
 import { useContext } from 'react';
+import SingleRepo from './SingleRepo';
+
 
 const Main = () => {
 
@@ -40,7 +42,8 @@ const Main = () => {
 
     }
 
-    /*Returning the defined AppBar and a RepositoryList component, a SignOut
+    /*Returning the defined AppBar and a RepositoryList component or a
+    SingleRepo component depending on the current Route and a SignOut
     component or a SignIn component depending on the current Route. */
     return (
         <View style={{ flex: 1 }}>
@@ -49,6 +52,7 @@ const Main = () => {
                 <Route path='/' element={<RepositoryList />} />
                 <Route path='/signin' element={<SignIn />} />
                 <Route path='/signout' element={<SignOut />} />
+                <Route path='/repositories/:id' element={<SingleRepo />} />
             </Routes>
 
 
