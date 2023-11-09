@@ -1,6 +1,6 @@
-//Importing ApolloClient and InMemoryCache, as well as the createHttpLink function.
 /*Importing ApolloClient, InMemoryCache and the createHttpLink function.
-Also importing Constants to get the url from .env and the setContext function. */
+Also importing Constants to get the url from .env, the setContext function
+and the relayStylePagination utility. */
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import Constants from 'expo-constants';
 import { setContext } from '@apollo/client/link/context';
