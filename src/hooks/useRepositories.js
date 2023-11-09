@@ -4,25 +4,24 @@ import { useQuery } from '@apollo/client';
 import { GET_REPO } from '../services/queries'
 import { GET_REPOS } from '../services/queries';
 
-/*Defining the useRepositories custom hook to return data from 
+/*Defining the useFiltered custom hook to return data from 
 the backend with GraphQL. Arguments received are set to be the values
 of variables in the defined GET_REPOS query and they define
-the sorting method used. */
-const useRepositories = ({ orderDir, sortBy }) => {
+the sorting method used as well as the string used for filtering. */
+const useFiltered = ({ filterString, orderDir, sortBy }) => {
 
     const { data, loading } = useQuery(GET_REPOS, {
         fetchPolicy: 'cache-and-network',
-        variables: { orderBy: sortBy, orderDirection: orderDir },
+        variables: { searchKeyword: filterString, orderBy: sortBy, orderDirection: orderDir },
         onError: (error) => {
             console.log(error)
         }
     });
 
-    return { data, loading } 
-   
-};
+    return { data, loading }
+}
 
-export default useRepositories;
+export default useFiltered;
 
 /*Defining an useRepository custom hook to return the data of one
 repository, with the given id from the backend with GrapgL. */
