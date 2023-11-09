@@ -4,11 +4,24 @@ Also importing Constants to get the url from .env and the setContext function. *
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import Constants from 'expo-constants';
 import { setContext } from '@apollo/client/link/context';
+import { relayStylePagination } from '@apollo/client/utilities';
 
 //Using createHttpLink to connect to the backend.
 const httpLink = createHttpLink({
     uri: Constants.manifest.extra.env
 
+});
+
+/*Defining a cache that has type policies supporting "infinite
+scrolling" for repositories. */
+const cache = new InMemoryCache({
+    typePolicies: {
+        Repository: {
+            fields: {
+                reviews: relayStylePagination(),
+            },
+        },
+    },
 });
 
 //Defining an ApolloClient used ín App.
@@ -33,10 +46,11 @@ const createApolloClient = (authStorage) => {
         }
     });
 
-    //Returning a new Apollo Client with the defined authLink and inMemoryCache.
+    /*Returning a new Apollo Client with the defined authLink and 
+    the defined cache as inMemoryCache. */
     return new ApolloClient({
         link: authLink.concat(httpLink),
-        cache: new InMemoryCache(),
+        cache,
     });
 };
 

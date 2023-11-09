@@ -26,9 +26,11 @@ export const GET_REPOS = gql`
     }
 `
 
-//Defining a query to a single repository with a given id.
+/*Defining a query to get a single repository with a given id.
+The query is also used to support infinite scrolling for
+repository reviews. */
 export const GET_REPO = gql`
-    query Repo ($id: ID!){
+    query Repo ($id: ID! $after: String){
       repository(id: $id) {
         id
         fullName
@@ -41,18 +43,26 @@ export const GET_REPO = gql`
         language
         ownerAvatarUrl
         url
-        reviews {
+        reviews (first: 5, after: $after){
+          totalCount
           edges {
             node {
               id
               text
               rating
               createdAt
+              repositoryId
               user {
                 id
                 username
               }
             }
+            cursor
+         }
+         pageInfo {
+           endCursor
+           startCursor
+           hasNextPage
          }
       }
     }

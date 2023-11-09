@@ -28,7 +28,10 @@ const SingleRepo = () => {
 
     /*Using the define duseRepository hook to get the data of the
     repository ot be passed on to the RepositoryItem component. */
-    const repoQuery = useRepository(id)
+    const { reviews, loading, fetchMore, data } = useRepository({
+        first: 5,
+        id
+    });
 
     let reviewNodes
 
@@ -36,11 +39,19 @@ const SingleRepo = () => {
     const ItemSeparator = () => <View style={styles.separator} />;
 
     //Getting an array of reviews related to the received repository object.
-    if (!repoQuery.loading) {
-        reviewNodes = repoQuery.data.repository.reviews
-            ? repoQuery.data.repository.reviews.edges.map(edge => edge.node)
+    if (!loading) {
+        console.log(data)
+        reviewNodes = reviews.edges
+            ? reviews.edges.map(edge => edge.node)
             : undefined;
     }
+
+    /*Using the fetchMore function to get more results, when the end of the 
+    FlatList containing the reviews of the repository is reached, thus
+    implementing "infinite scrolling". */
+    const onEndReach = () => {
+        fetchMore();
+    };
 
     /*If repoQuery has finished loading, returning a RepositoryItem
     component with the data of the query response. Also using a FlatList 
@@ -48,12 +59,14 @@ const SingleRepo = () => {
     return (
         <View style={{flex: 1}}>
             <View>
-                {!repoQuery.loading ? <FlatList
+                {data ? <FlatList
                 nestedScrollEnabled={false}
+                onEndReached={onEndReach}
+                onEndReachedThreshold={1.0}
                 data={reviewNodes}
                 ItemSeparatorComponent={ItemSeparator}
                 ListHeaderComponent={() =>
-                        <RepositoryItem repo={repoQuery.data.repository} single={true} />}
+                    <RepositoryItem repo={data.repository} single={true} />}
                 renderItem={({ item }) => (
                         <View style={{flex: 1}}>
                             <SingleReview
