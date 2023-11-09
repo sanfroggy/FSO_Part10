@@ -47,6 +47,7 @@ const ReviewList = () => {
                             key={item.id}
                             review={item}
                             myreview={true}
+                            refetch={reviewQuery.refetch}
                         />
                     </View>
                 )}

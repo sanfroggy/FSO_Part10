@@ -57,6 +57,18 @@ const theme = {
             width: 80,
             backgroundColor: 'silver'
         },
+        mediumContainerWithSilverBrgd: {
+            height: 25,
+            width: 180,
+            alignItems: 'center',
+            backgroundColor: 'silver'
+        },
+        mediumContainerWithRedBrgd: {
+            height: 25,
+            width: 180,
+            alignItems: 'center',
+            backgroundColor: 'darkred'
+        },
         largeContainerWithSilverBrgd: {
             height: 25,
             width: 250,

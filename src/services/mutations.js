@@ -22,6 +22,13 @@ mutation ($repoOwner: String!, $repoName: String!,
 }
 `
 
+//Defining a mutation used to delete an existing review.
+export const DELETE_REVIEW = gql`
+mutation($id: ID!) {
+    deleteReview(id: $id)
+}
+`
+
 //Defining a mutation used to create a new user.
 export const SIGN_UP = gql`
   mutation ($user: String!, $pwd: String!){

@@ -1,7 +1,7 @@
 /*Importing the useMutation and useQuery hooks as well as
 the CREATE_REVIEW mutation and ME query. */
 import { useMutation } from '@apollo/client';
-import { CREATE_REVIEW } from '../services/mutations'
+import { CREATE_REVIEW, DELETE_REVIEW } from '../services/mutations'
 import { useQuery } from '@apollo/client';
 import { ME } from '../services/queries'
 
@@ -34,11 +34,11 @@ const useReview = () => {
 
 export default useReview;
 
-/*Defining a hook to use the ME mutation to return the
+/*Defining a refetchable hook to use the ME mutation to return the
 reviews posted by the logged in user. */
 export const useReviews = () => {
 
-    const { data, loading } = useQuery(ME, {
+    const { data, loading, refetch } = useQuery(ME, {
         variables: { includeReviews: true },
         fetchPolicy: 'cache-and-network',
         onError: (error) => {
@@ -49,7 +49,30 @@ export const useReviews = () => {
 
     if (!loading) {
         const reviewData = data.me.reviews.edges
-        return { reviewData, loading }
+        return { reviewData, loading, refetch }
     }
     
+}
+
+/*Defining a hook to use the DELETE_REVIEW mutation to delete
+a review made by the logged in user. */
+export const useDeleteReview = () => {
+
+    const [deleteReview, result] = useMutation(DELETE_REVIEW, {
+        onError: (error) => {
+            console.log(error)
+        }
+    })
+
+    const handleDelete = async (id ) => {
+
+        const response = await deleteReview({ variables: { id: id } })
+        if (response) {
+
+            return response
+        }
+
+    }
+
+    return [handleDelete, result]
 }
