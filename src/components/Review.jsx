@@ -8,7 +8,7 @@ import { Formik } from 'formik';
 import themes from '../theme'
 import * as yup from 'yup'
 import { useNavigate } from 'react-router-native'
-import useReview from '../hooks/useReview'
+import useReview from '../hooks/useReviews'
 
 /*Creating a validationSchema using the yup library to validate
 user input, when creating a review. */

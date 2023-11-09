@@ -59,6 +59,7 @@ const SingleRepo = () => {
                             <SingleReview
                             key={item.id}
                             review={item}
+                            myreview={false}
                             />
                         </View>
                     )}

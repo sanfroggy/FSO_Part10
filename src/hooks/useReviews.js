@@ -1,6 +1,9 @@
-//Importing the useMutation hook and the CREATE_REVIEW mutation.
+/*Importing the useMutation and useQuery hooks as well as
+the CREATE_REVIEW mutation and ME query. */
 import { useMutation } from '@apollo/client';
 import { CREATE_REVIEW } from '../services/mutations'
+import { useQuery } from '@apollo/client';
+import { ME } from '../services/queries'
 
 //Defining a hook to use the CREATE_REVIEW mutation.
 const useReview = () => {
@@ -30,3 +33,23 @@ const useReview = () => {
 }
 
 export default useReview;
+
+/*Defining a hook to use the ME mutation to return the
+reviews posted by the logged in user. */
+export const useReviews = () => {
+
+    const { data, loading } = useQuery(ME, {
+        variables: { includeReviews: true },
+        fetchPolicy: 'cache-and-network',
+        onError: (error) => {
+            console.log(error)
+        },
+        
+    });
+
+    if (!loading) {
+        const reviewData = data.me.reviews.edges
+        return { reviewData, loading }
+    }
+    
+}

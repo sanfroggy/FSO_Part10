@@ -3,7 +3,7 @@ import themes from '../theme'
 import { View, Text } from 'react-native'
 
 //Defining a component used to display the data of a single review.
-const SingleReview = ({ review }) => {
+const SingleReview = ({ review, myreview }) => {
 
     //The date of creation is parsed as substrings and reorchestrated to proper format.
     const createdMonth = review.createdAt.substring(5, 7)
@@ -11,8 +11,9 @@ const SingleReview = ({ review }) => {
     const createdYear = review.createdAt.substring(0, 4)
 
     /*Returning the rating in a container styled to a circular shape.
-    Also returning the user that posted the review, the date when it was posted
-    and the text content of the review. */
+    Also returning the the date when it was posted and the text content of the review. 
+    If myreview is false the username of the user that posted it is returned, if not
+    the fullName if the repository reviewed is returned. */
     return (
         <View style={{ flex: 1 }}>
             <View style={themes.aesthetics.layout.smallHorizontalRowFlexContainer}>
@@ -22,7 +23,8 @@ const SingleReview = ({ review }) => {
                 </View>
                 
                 <View style={themes.aesthetics.layout.smallVerticalColumnFlexContainer}>
-                    <Text style={themes.fontStyles.smallHeader} color='textPrimary'> {review.user.username}</Text>
+                    {!myreview ? <Text style={themes.fontStyles.smallHeader} color='textPrimary'> {review.user.username}</Text>
+                        : <Text style={themes.fontStyles.smallHeader} color='textPrimary'> {review.repository.fullName}</Text>}
                     <Text style={themes.fontStyles.normal} color='textPrimary'>
                         {createdDate + "." + createdMonth + "." + createdYear}</Text>
                 </View>

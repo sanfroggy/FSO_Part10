@@ -13,6 +13,7 @@ import { useContext } from 'react';
 import SingleRepo from './SingleRepo';
 import Review from './Review'
 import SignUp from './SignUp'
+import ReviewList from './ReviewList'
 
 const Main = () => {
 
@@ -45,7 +46,8 @@ const Main = () => {
 
     /*Returning the defined AppBar and a RepositoryList component or a
     SingleRepo component depending on the current Route and a SignOut
-    component or a SignIn component depending on the current Route. */
+    component or a SignIn component depending on the current Route. Routes
+    for creating a review and getting existing reviews are also defined. */
     return (
         <View style={{ flex: 1 }}>
             <AppBar />
@@ -55,7 +57,8 @@ const Main = () => {
                 <Route path='/signout' element={<SignOut />} />
                 <Route path='/repositories/:id' element={<SingleRepo />} />
                 <Route path='/createreview' element={<Review />} />
-                <Route path='/signup' element={<SignUp /> } />
+                <Route path='/signup' element={<SignUp />} />
+                <Route path='/getreviews' element={<ReviewList /> } />
             </Routes>
 
 

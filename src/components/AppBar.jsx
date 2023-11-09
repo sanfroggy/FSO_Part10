@@ -34,11 +34,11 @@ const AppBar = () => {
     }, [userQuery])
 
     /*Returning a View component with a ScrollField component and 2 AppBarTab components 
-    as it's child. If the value of the user is null then the Link component to sign in is displayed.
-    If a user is logged in the Link component to sign out is displayed. ScrollView component 
-    allows for horizontal scrolling when the AppBar components don't fit the screen and AppBarTabs 
-    acts as links to different views in the app. The style of the View makes sure all the links stay 
-    in a row formation. */
+    as it's child. If the value of the user is null then the Link component to sign in and to sign up
+    are displayed. If a user is logged in the Link components to create a review, to view already posted 
+    reviews and to sign out are displayed. ScrollView component allows for horizontal scrolling when the 
+    AppBar components don't fit the screen and AppBarTabs acts as links to different views in the app. 
+    The style of the View makes sure all the links stay in a row formation. */
     return (
         <View style={themes.aesthetics.topBar}>
             <ScrollView horizontal>
@@ -48,6 +48,7 @@ const AppBar = () => {
                 {user === null ? <AppBarTab label={'Sign In'} destination={'/signin'} />
                     : <AppBarTab label={'Sign Out'} destination={'/signout'} />}
                 {!user ? <AppBarTab label={'Sign Up'} destination={'/signup'} /> : null}
+                {user ? <AppBarTab label={"My reviews"} destination={'/getreviews'} /> : null}
             </ScrollView>
         </View>
     );

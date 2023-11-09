@@ -37,3 +37,20 @@ export const useRepository = (id) => {
 
     return { data, loading }
 }
+
+/*Defining the useSorted custom hook to return data from 
+the backend with GraphQL. Arguments received are set to be the values
+of variables in the defined GET_REPOS query and they define
+the sorting method used. */
+export const useSorted = ({ orderDir, sortBy }) => {
+
+   const { data, loading } = useQuery(GET_REPOS, {
+        fetchPolicy: 'cache-and-network',
+        variables: { orderBy: sortBy, orderDirection: orderDir },
+        onError: (error) => {
+            console.log(error)
+        }
+    });
+
+    return { data, loading }
+}

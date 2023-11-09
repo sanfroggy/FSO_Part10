@@ -59,12 +59,25 @@ export const GET_REPO = gql`
     }
 `
 
-//Defining a query to get the currently logged in user.
+/*Defining a query to get the currently logged in user and to get
+the reviews made by the logged in user if includeReviews is true. */
 export const ME = gql`
-    query Me {
+    query Me($includeReviews: Boolean = false) {
       me {
         id
         username
+        reviews @include(if: $includeReviews) {
+          edges {
+            node {
+              rating
+              createdAt
+              repository {
+                fullName
+              }
+              text
+            }
+          }
+        }
       }
     }
 `
